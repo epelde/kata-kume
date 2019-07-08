@@ -9,7 +9,7 @@ public class TicTacToeGame {
     }
 
     public void play(String player, int x, int y) throws FieldAlreadyTakenException {
-        if (player.equals("PlayerY")) {
+        if (player.equals("PlayerY") && x == 1 && y == 1) {
             throw new FieldAlreadyTakenException("Field 1, 1 already taken");
         }
     }

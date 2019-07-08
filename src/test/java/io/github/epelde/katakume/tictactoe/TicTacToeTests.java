@@ -16,7 +16,14 @@ public class TicTacToeTests {
     public void A_player_can_take_a_field_if_not_already_taken() throws FieldAlreadyTakenException {
         TicTacToeGame game = new TicTacToeGame();
         game.play("PlayerX", 1, 1);
+        game.play("PlayerY", 1, 2);
+    }
 
+
+    @Test
+    public void A_player_can_not_take_an_already_taken_field() throws FieldAlreadyTakenException {
+        TicTacToeGame game = new TicTacToeGame();
+        game.play("PlayerX", 1, 1);
         try {
             game.play("PlayerY", 1, 1);
             fail("FieldAlreadyTakenException was expected.");
