@@ -1,4 +1,13 @@
-package io.github.epelde.katakume;
+package io.github.epelde.katakume.tictactoe;
 
-public class TicTacToeTest {
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TicTacToeTests {
+
+    @Test
+    public void dumbTest() {
+        assertTrue(true);
+    }
 }
