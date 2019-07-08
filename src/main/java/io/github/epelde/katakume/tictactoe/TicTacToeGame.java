@@ -17,7 +17,7 @@ public class TicTacToeGame {
         return over;
     }
 
-    public void play(String player, Field field) throws FieldAlreadyTakenException {
+    public void play(Field field) throws FieldAlreadyTakenException {
         if (fields.contains(field)) {
             throw new FieldAlreadyTakenException(field.toString() + "is already taken");
         }
