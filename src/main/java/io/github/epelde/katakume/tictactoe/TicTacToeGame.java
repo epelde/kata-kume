@@ -1,16 +1,26 @@
 package io.github.epelde.katakume.tictactoe;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TicTacToeGame {
 
     private boolean over = false;
+
+    List<Field> fields;
+
+    public TicTacToeGame() {
+        fields = new ArrayList<>(9);
+    }
 
     public boolean isOver() {
         return over;
     }
 
     public void play(String player, Field field) throws FieldAlreadyTakenException {
-        if (player.equals("PlayerY") && field.equals(new Field(1,1 ))) {
-            throw new FieldAlreadyTakenException("Field 1, 1 already taken");
+        if (fields.contains(field)) {
+            throw new FieldAlreadyTakenException(field.toString() + "is already taken");
         }
+        fields.add(field);
     }
 }
