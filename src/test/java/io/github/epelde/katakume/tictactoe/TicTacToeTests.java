@@ -35,4 +35,18 @@ public class TicTacToeTests {
             assertTrue(true);
         }
     }
+
+    @Test
+    public void A_game_is_over_when_all_fields_are_taken() throws FieldAlreadyTakenException {
+        game.play(new Field(1,1));
+        game.play(new Field(1,2));
+        game.play(new Field(1,3));
+        game.play(new Field(2,1));
+        game.play(new Field(2,2));
+        game.play(new Field(2,3));
+        game.play(new Field(3,1));
+        game.play(new Field(3,2));
+        game.play(new Field(3,3));
+        assertTrue(game.isOver());
+    }
 }

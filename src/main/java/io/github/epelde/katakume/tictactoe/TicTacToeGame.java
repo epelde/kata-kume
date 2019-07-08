@@ -14,11 +14,11 @@ public class TicTacToeGame {
     }
 
     public boolean isOver() {
-        return over;
+        return this.fields.size() >= 9;
     }
 
     public void play(Field field) throws FieldAlreadyTakenException {
-        if (fields.contains(field)) {
+        if (!isOver() && fields.contains(field)) {
             throw new FieldAlreadyTakenException(field.toString() + "is already taken");
         }
         fields.add(field);
