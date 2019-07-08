@@ -7,7 +7,7 @@ public class TicTacToeGame {
 
     private boolean over = false;
 
-    List<Field> fields;
+    private List<Field> fields;
 
     public TicTacToeGame() {
         fields = new ArrayList<>(9);
