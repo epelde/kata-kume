@@ -29,7 +29,6 @@ public class GridFieldTests {
             Assertions.assertTrue(true);
             Assertions.assertEquals("Field already taken by PLAYER_X", expected.getMessage());
         }
-
     }
 
 }
