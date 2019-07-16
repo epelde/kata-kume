@@ -9,4 +9,10 @@ public class GameTests {
     public void There_are_two_players_in_the_game() {
         Assertions.assertEquals(2, Player.values().length);
     }
+
+    @Test
+    public void A_game_is_not_over_when_it_starts() {
+        Game game =  new Game();
+        Assertions.assertFalse(game.isOver());
+    }
 }
