@@ -33,8 +33,15 @@ public class FibonacciNumberTests {
     }
 
     @Test
-    public void theFibonacciNumberForTheFourthPositionIsTwo() {
+    public void generateFibonacciNumberForVariousPositions() {
         assertThat(fibonacciNumber.generate(4), equalTo(2));
+        assertThat(fibonacciNumber.generate(5), equalTo(3));
+        assertThat(fibonacciNumber.generate(6), equalTo(5));
+        assertThat(fibonacciNumber.generate(7), equalTo(8));
+        assertThat(fibonacciNumber.generate(8), equalTo(13));
+        assertThat(fibonacciNumber.generate(9), equalTo(21));
+        assertThat(fibonacciNumber.generate(10), equalTo(34));
     }
+
 
 }
