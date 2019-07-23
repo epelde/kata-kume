@@ -12,7 +12,13 @@ public class GameTests {
 
     @Test
     public void A_game_is_not_over_when_it_starts() {
-        Game game =  new Game();
+        Game game = new Game();
         Assertions.assertFalse(game.isOver());
+    }
+
+    @Test
+    public void test() {
+        Game game = new Game();
+        game.take(1, 1);
     }
 }

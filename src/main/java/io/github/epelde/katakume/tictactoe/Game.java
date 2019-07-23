@@ -7,4 +7,7 @@ public class Game {
     public boolean isOver() {
         return this.over;
     }
+
+    public void take(int i, int i1) {
+    }
 }
