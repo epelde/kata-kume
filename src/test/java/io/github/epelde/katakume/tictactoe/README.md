@@ -1,4 +1,4 @@
-# Rules
+# Tic Tac Toe Kata Rules
 
 In random order:
 
