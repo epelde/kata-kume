@@ -1,18 +1,15 @@
 package io.github.epelde.katakume;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.runner.RunWith;
 
-/**
- * Unit test for simple App.
- */
+@RunWith(JUnitPlatform.class)
+@SelectPackages("io.github.epelde.katakume")
 public class AppTest {
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
-    }
 }
+
+
+
+
