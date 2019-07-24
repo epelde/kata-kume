@@ -3,6 +3,9 @@ package io.github.epelde.katakume.stringcalculator;
 public class StringCalculator {
 
     public String add(String number) {
-        return "0";
+        if (number.equals("")) {
+            return "0";
+        }
+        return number;
     }
 }
