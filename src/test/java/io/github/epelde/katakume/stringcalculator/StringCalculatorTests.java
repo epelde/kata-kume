@@ -27,4 +27,10 @@ public class StringCalculatorTests {
         assertThat(stringCalculator.add("3"), equalTo("3"));
     }
 
+    @Test
+    public void a_string_containing_two_numbers_returns_the_sum() {
+        assertThat(stringCalculator.add("1,3"), equalTo("4"));
+    }
+
+
 }
