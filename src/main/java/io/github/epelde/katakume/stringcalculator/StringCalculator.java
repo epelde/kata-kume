@@ -7,8 +7,11 @@ public class StringCalculator {
 
     private final String SEPARATOR = ",";
 
+    private final String NEWLINE_SEPARATOR = "\n";
+
     public String add(String number) {
-        return Arrays.stream(number.split(SEPARATOR))
+        return Arrays.stream(number.replace(NEWLINE_SEPARATOR, SEPARATOR)
+                .split(SEPARATOR))
                 .reduce("", (number1, number2) ->
                         stringToNumber(number1).add(stringToNumber(number2)).toString()
                 );

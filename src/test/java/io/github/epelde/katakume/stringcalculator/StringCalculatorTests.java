@@ -42,4 +42,9 @@ public class StringCalculatorTests {
         assertThat(stringCalculator.add("1.1,1.2,1.3,1.4,1.5"), equalTo("6.5"));
     }
 
+    @Test
+    public void add_method_also_handles_newline_separator() {
+        assertThat(stringCalculator.add("1\n2,3"), equalTo("6"));
+    }
+
 }
