@@ -18,7 +18,7 @@ public class YearTests {
     }
 
     @Test
-    public void aYearDivisibleBy4ButNotBy100IsLeapYear() {
+    public void aYearDivisibleBy4ButNotBy100IsALeapYear() {
         assertTrue(new Year(2008).isLeap());
         assertTrue(new Year(2012).isLeap());
         assertTrue(new Year(2016).isLeap());
@@ -27,7 +27,7 @@ public class YearTests {
     }
 
     @Test
-    public void aYearDivisibleBy4AndBy100IsLeapCommon() {
+    public void aYearDivisibleBy4AndBy100IsACommonYear() {
         assertFalse(new Year(1900).isLeap());
         assertFalse(new Year(2100).isLeap());
         assertFalse(new Year(2200).isLeap());
