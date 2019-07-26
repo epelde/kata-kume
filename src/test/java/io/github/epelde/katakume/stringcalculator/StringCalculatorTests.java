@@ -37,4 +37,9 @@ public class StringCalculatorTests {
         assertThat(stringCalculator.add("1.1,1.2"), equalTo("2.3"));
     }
 
+    @Test
+    public void a_string_containing_many_numbers_returns_the_sum() {
+        assertThat(stringCalculator.add("1.1,1.2,1.3,1.4,1.5"), equalTo("6.5"));
+    }
+
 }

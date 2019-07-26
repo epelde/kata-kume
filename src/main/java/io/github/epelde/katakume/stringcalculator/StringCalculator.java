@@ -1,6 +1,7 @@
 package io.github.epelde.katakume.stringcalculator;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class StringCalculator {
 
@@ -9,6 +10,9 @@ public class StringCalculator {
         if (numbers.length == 1) {
             return numbers[0].equals("") ? "0" : numbers[0];
         }
-        return new BigDecimal(numbers[0]).add(new BigDecimal(numbers[1])).toString();
+
+        return Arrays.stream(numbers).reduce("0", (number1, number2) ->
+            new BigDecimal(number1).add(new BigDecimal(number2)).toString()
+        );
     }
 }
