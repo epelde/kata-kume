@@ -21,7 +21,7 @@ public class StringCalculatorTests {
     }
 
     @Test
-    public void a_string_containing_one_number_returns_the_number() {
+    public void a_string_containing_just_one_number_returns_the_number() {
         assertThat(stringCalculator.add("1"), equalTo("1"));
         assertThat(stringCalculator.add("2"), equalTo("2"));
         assertThat(stringCalculator.add("3"), equalTo("3"));
