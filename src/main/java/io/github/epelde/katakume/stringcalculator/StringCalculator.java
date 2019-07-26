@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 public class StringCalculator {
 
+    private final String SEPARATOR = ",";
+
     public String add(String number) {
-        return Arrays.stream(number.split(","))
+        return Arrays.stream(number.split(SEPARATOR))
                 .reduce("0", (number1, number2) ->
                         stringToNumber(number1).add(stringToNumber(number2)).toString()
                 );
