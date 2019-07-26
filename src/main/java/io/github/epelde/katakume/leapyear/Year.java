@@ -1,9 +1,16 @@
 package io.github.epelde.katakume.leapyear;
 
-public class LeapYear {
-    public boolean isLeap(int year) {
-        return (isDivisibleBy4(year) && !isDivisibleBy100(year))
-                || isDivisibleBy400SpecialCase(year);
+public class Year {
+
+    private int year;
+
+    Year(int year) {
+        this.year = year;
+    }
+
+    public boolean isLeap() {
+        return (isDivisibleBy4(this.year) && !isDivisibleBy100(this.year))
+                || isDivisibleBy400SpecialCase(this.year);
     }
 
     private boolean isDivisibleBy4(int year) {
