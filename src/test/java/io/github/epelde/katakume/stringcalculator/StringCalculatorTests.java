@@ -28,9 +28,13 @@ public class StringCalculatorTests {
     }
 
     @Test
-    public void a_string_containing_two_numbers_returns_the_sum() {
+    public void a_string_containing_two_numbers_returns_both_numbers_sum() {
         assertThat(stringCalculator.add("1,3"), equalTo("4"));
     }
 
+    @Test
+    public void a_string_containing_two_decimal_numbers_returns_both_numbers_sum() {
+        assertThat(stringCalculator.add("1.1,1.2"), equalTo("2.3"));
+    }
 
 }
