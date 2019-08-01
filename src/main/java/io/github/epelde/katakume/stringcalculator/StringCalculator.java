@@ -10,9 +10,14 @@ public class StringCalculator {
     private final String NEWLINE_SEPARATOR = "\n";
 
     public String add(String number) {
-         if (number.isEmpty()) {
-             return "0";
-         }
+
+        if (number.isEmpty()) {
+            return "0";
+        }
+
+        if (!number.contains(SEPARATOR)) {
+            return number;
+        }
 
         return Arrays.stream(number.replace(NEWLINE_SEPARATOR, SEPARATOR)
                 .split(SEPARATOR))
