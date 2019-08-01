@@ -57,5 +57,18 @@ public class InputNumberParsingTests {
         assertThat(output[1], equalTo("2.2"));
     }
 
+    @Test
+    public void string_can_contain_many_numbers() {
+        String[] output = parser.parse("1.1,2.2,3,4,5.5");
+
+        assertThat(output.length, equalTo(5));
+        assertThat(output[0], equalTo("1.1"));
+        assertThat(output[1], equalTo("2.2"));
+        assertThat(output[2], equalTo("3"));
+        assertThat(output[3], equalTo("4"));
+        assertThat(output[4], equalTo("5.5"));
+
+    }
+
 
 }
