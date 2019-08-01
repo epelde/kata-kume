@@ -21,11 +21,7 @@ public class StringCalculator {
                     .reduce("0", (number1, number2) ->
                             sumTwoStringNumbers(number1, number2));
         } catch (NumberFormatException e) {
-            int position = homogenizeSeparators(number)
-                    .indexOf(SEPARATOR + SEPARATOR) + 1;
-            char character = number.charAt(position);
-            return "Number expected but '" + character +
-                    "' found at position " + position + ".";
+            return getNumberExpectedMessage(number);
         }
     }
 
@@ -39,5 +35,13 @@ public class StringCalculator {
 
     private String sumTwoStringNumbers(String number1, String number2) {
         return new BigDecimal(number1).add(new BigDecimal(number2)).toString();
+    }
+
+    private String getNumberExpectedMessage(String number) {
+        int position = homogenizeSeparators(number)
+                .indexOf(SEPARATOR + SEPARATOR) + 1;
+        char character = number.charAt(position);
+        return "Number expected but '" + character +
+                "' found at position " + position + ".";
     }
 }
