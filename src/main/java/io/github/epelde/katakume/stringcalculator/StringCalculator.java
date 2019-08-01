@@ -19,7 +19,7 @@ public class StringCalculator {
         try {
             return getStreamOfStringNumbers(number)
                     .reduce("0", (number1, number2) ->
-                            sumTwoNumbers(number1, number2));
+                            sumTwoStringNumbers(number1, number2));
         } catch (NumberFormatException e) {
             return "Number expected";
         }
@@ -33,7 +33,7 @@ public class StringCalculator {
         return number.replace(NEWLINE_SEPARATOR, SEPARATOR);
     }
 
-    private String sumTwoNumbers(String number1, String number2) {
+    private String sumTwoStringNumbers(String number1, String number2) {
         return new BigDecimal(number1).add(new BigDecimal(number2)).toString();
     }
 }
