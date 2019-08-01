@@ -6,6 +6,12 @@ import java.util.stream.Stream;
 
 public class StringCalculator {
 
+    private StringOfNumbersParser parser;
+
+    StringCalculator(StringOfNumbersParser parser) {
+        this.parser = parser;
+    }
+
     private final String SEPARATOR = ",";
 
     private final String NEWLINE_SEPARATOR = "\n";
