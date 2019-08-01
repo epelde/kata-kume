@@ -5,19 +5,21 @@ import java.util.Arrays;
 
 public class StringOfNumbersParser {
 
-    private String delimiter;
+    private final String DEFAULT_DELIMITER = ",|\n";
 
-    StringOfNumbersParser(String... delimiter) {
-        this.delimiter = Arrays.stream(delimiter).reduce((sep1, sep2) -> sep1 + "|" + sep2).orElse(",");
+    private String input;
+
+    StringOfNumbersParser(String input) {
+        this.input = input;
     }
 
-    public BigDecimal[] parse(String input) {
+    public BigDecimal[] parse() {
 
-        if (input.isEmpty()) {
+        if (this.input.isEmpty()) {
             return new BigDecimal[]{ new BigDecimal("0") };
         }
 
-        return Arrays.stream(input.split(delimiter))
+        return Arrays.stream(this.input.split(DEFAULT_DELIMITER))
                 .map(number -> new BigDecimal(number))
                 .toArray(BigDecimal[]::new);
     }

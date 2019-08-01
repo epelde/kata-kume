@@ -13,9 +13,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void empty_string_returns_array_with_just_one_zero() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",");
+        StringOfNumbersParser parser = new StringOfNumbersParser("");
 
-        BigDecimal[] output = parser.parse("");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(1));
         assertThat(output[0], equalTo(new BigDecimal("0")));
@@ -23,9 +23,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void string_containing_just_one_number_returns_array_with_the_number() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1");
 
-        BigDecimal[] output = parser.parse("1");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(1));
         assertThat(output[0], equalTo(new BigDecimal("1")));
@@ -33,9 +33,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void string_containing_just_one_decimal_number_returns_array_with_the_number() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1.2");
 
-        BigDecimal[] output = parser.parse("1.2");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(1));
         assertThat(output[0], equalTo(new BigDecimal("1.2")));
@@ -43,9 +43,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void string_containing_two_numbers_returns_array_with_two_numbers() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1,2");
 
-        BigDecimal[] output = parser.parse("1,2");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(2));
         assertThat(output[0], equalTo(new BigDecimal("1")));
@@ -54,9 +54,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void string_containing_two_decimal_numbers_returns_array_with_two_numbers() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1.1,2.2");
 
-        BigDecimal[] output = parser.parse("1.1,2.2");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(2));
         assertThat(output[0], equalTo(new BigDecimal("1.1")));
@@ -65,9 +65,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void string_can_contain_many_numbers() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1.1,2.2,3,4,5.5");
 
-        BigDecimal[] output = parser.parse("1.1,2.2,3,4,5.5");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(5));
         assertThat(output[0], equalTo(new BigDecimal("1.1")));
@@ -79,8 +79,8 @@ public class InputNumberParsingTests {
 
     @Test
     public void new_line_can_also_be_a_valid_delimiter() {
-        StringOfNumbersParser parser = new StringOfNumbersParser("\n");
-        BigDecimal[] output = parser.parse("1.1\n2.2\n3\n4\n5.5");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1.1\n2.2\n3\n4\n5.5");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(5));
         assertThat(output[0], equalTo(new BigDecimal("1.1")));
@@ -92,9 +92,9 @@ public class InputNumberParsingTests {
 
     @Test
     public void string_can_have_different_delimiters_mixed() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",", "\n");
+        StringOfNumbersParser parser = new StringOfNumbersParser("1.1\n2.2,3,4\n5.5");
 
-        BigDecimal[] output = parser.parse("1.1\n2.2,3,4\n5.5");
+        BigDecimal[] output = parser.parse();
 
         assertThat(output.length, equalTo(5));
         assertThat(output[0], equalTo(new BigDecimal("1.1")));
@@ -106,10 +106,10 @@ public class InputNumberParsingTests {
 
     @Test
     public void number_is_expected_between_delimiters() {
-        StringOfNumbersParser parser = new StringOfNumbersParser(",", "\n");
+        StringOfNumbersParser parser = new StringOfNumbersParser("175.2,\n35");
 
         try {
-            parser.parse("175.2,\n35");
+            parser.parse();
             fail("NumberFormatException was expected");
         } catch(NumberFormatException expected) {
             assertTrue(true);
