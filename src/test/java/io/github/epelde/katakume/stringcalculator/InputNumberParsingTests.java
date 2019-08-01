@@ -29,6 +29,14 @@ public class InputNumberParsingTests {
 
         assertThat(output.length, equalTo(1));
         assertThat(output[0], equalTo("1"));
-
     }
+
+    @Test
+    public void string_containing_just_one_decimal_number_returns_array_with_the_number() {
+        String[] output = parser.parse("1.2");
+
+        assertThat(output.length, equalTo(1));
+        assertThat(output[0], equalTo("1.2"));
+    }
+
 }
