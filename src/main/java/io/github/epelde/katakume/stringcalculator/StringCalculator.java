@@ -16,17 +16,14 @@ public class StringCalculator {
     private final String NEWLINE_SEPARATOR = "\n";
 
     public String add(String number) {
-
-        if (homogenizeSeparators(number).endsWith(SEPARATOR)) {
-            return "Number expected but EOF found.";
-        }
-
         try {
             return Arrays.stream(this.parser.parse(number))
                     .reduce("0", (number1, number2) ->
                         sum(number1, number2));
         } catch (NumberExpectedException e) {
             return getNumberExpectedMessage(number);
+        } catch (EndOfFileException e) {
+            return "Number expected but EOF found.";
         }
     }
 
