@@ -39,4 +39,13 @@ public class InputNumberParsingTests {
         assertThat(output[0], equalTo("1.2"));
     }
 
+    @Test
+    public void string_containing_two_numbers_returns_array_with_two_numbers() {
+        String[] output = parser.parse("1,2");
+
+        assertThat(output.length, equalTo(2));
+        assertThat(output[0], equalTo("1"));
+        assertThat(output[1], equalTo("2"));
+    }
+
 }
