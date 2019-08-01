@@ -19,7 +19,7 @@ public class StringCalculatorTests {
     public void an_empty_string_returns_zero() {
         assertThat(calculator.add(""), equalTo("0"));
     }
-º
+
     @Test
     public void a_string_containing_just_one_number_returns_the_number() {
         assertThat(calculator.add("1"), equalTo("1"));
