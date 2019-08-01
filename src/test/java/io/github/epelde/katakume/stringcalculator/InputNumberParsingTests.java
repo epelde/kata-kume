@@ -96,7 +96,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void number_is_expected_between_delimiters() throws EndOfFileException {
+    public void number_exception_expected_when_no_number_between_delimiters() throws EndOfFileException {
         try {
             parser.parse("175.2,\n35");
             fail("NumberExpectedException was expected");
