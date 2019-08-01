@@ -12,7 +12,7 @@ public class StringOfNumbersParser {
         if (input.isEmpty()) {
             return new String[] { "0" };
         }
-        return input.split(",");
+        return input.split(delimiter);
     }
 
 }
