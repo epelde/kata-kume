@@ -5,17 +5,17 @@ import java.util.Arrays;
 
 public class StringOfNumbersParser {
 
-    private final String DEFAULT_DELIMITER = ",|\n";
+    private final String DEFAULT_DELIMITERS = ",|\n";
 
-    public BigDecimal[] parse(String input) {
+    public String[] parse(String input) {
 
         if (input.isEmpty()) {
-            return new BigDecimal[]{ new BigDecimal("0") };
+            return new String[]{"0"};
         }
 
-        return Arrays.stream(input.split(DEFAULT_DELIMITER))
-                .map(number -> new BigDecimal(number))
-                .toArray(BigDecimal[]::new);
+        return Arrays.stream(input.split(DEFAULT_DELIMITERS))
+                .map(number -> new BigDecimal(number).toString())
+                .toArray(String[]::new);
     }
 
 }
