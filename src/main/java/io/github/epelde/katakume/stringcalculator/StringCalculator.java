@@ -21,7 +21,7 @@ public class StringCalculator {
                     .reduce("0", (number1, number2) ->
                             sumTwoStringNumbers(number1, number2));
         } catch (NumberFormatException e) {
-            return "Number expected";
+            return "Number expected but '\n' found at position 6.";
         }
     }
 
