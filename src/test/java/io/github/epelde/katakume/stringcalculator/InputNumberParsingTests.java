@@ -8,11 +8,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class InputNumberParsingTests {
 
-    private InputNumberParser parser;
+    private StringOfNumbersParser parser;
 
     @BeforeEach
     public void setUp() {
-        parser = new InputNumberParser();
+        parser = new StringOfNumbersParser();
     }
 
     @Test
