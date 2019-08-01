@@ -1,6 +1,7 @@
 package io.github.epelde.katakume.stringcalculator;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -53,6 +54,12 @@ public class StringCalculatorTests {
     @Test
     public void add_method_handles_integer_and_decimal_numbers() {
         assertThat(calculator.add("1.2,4\n2.3"), equalTo("7.5"));
+    }
+
+    @Test
+    @Disabled
+    public void a_number_is_always_expected_between_two_separators() {
+        assertThat(calculator.add("175.2,\n35"), equalTo("Number expected but '\n' found at position 6."));
     }
 
 }

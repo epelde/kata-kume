@@ -2,6 +2,7 @@ package io.github.epelde.katakume.stringcalculator;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class StringCalculator {
 
@@ -10,18 +11,29 @@ public class StringCalculator {
     private final String NEWLINE_SEPARATOR = "\n";
 
     public String add(String number) {
-        return Arrays.stream(number.replace(NEWLINE_SEPARATOR, SEPARATOR)
-                .split(SEPARATOR))
-                .reduce("0", (number1, number2) ->
-                        stringToNumber(number1).add(stringToNumber(number2)).toString()
-                );
+
+        if (number.isEmpty()) {
+            return "0";
+        }
+
+        try {
+            return getStreamOfStringNumbers(number)
+                    .reduce("0", (number1, number2) ->
+                            sumTwoNumbers(number1, number2));
+        } catch (NumberFormatException e) {
+            return "Number expected";
+        }
     }
 
-    private BigDecimal stringToNumber(String number) {
-        try {
-            return new BigDecimal(number);
-        } catch (NumberFormatException exception) {
-            return new BigDecimal("0");
-        }
+    private Stream<String> getStreamOfStringNumbers(String number) {
+        return Arrays.stream(homogenizeSeparators(number).split(SEPARATOR));
+    }
+
+    private String homogenizeSeparators(String number) {
+        return number.replace(NEWLINE_SEPARATOR, SEPARATOR);
+    }
+
+    private String sumTwoNumbers(String number1, String number2) {
+        return new BigDecimal(number1).add(new BigDecimal(number2)).toString();
     }
 }
