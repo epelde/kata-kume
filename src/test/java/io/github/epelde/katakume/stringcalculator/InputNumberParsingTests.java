@@ -86,4 +86,19 @@ public class InputNumberParsingTests {
         assertThat(output[4], equalTo("5.5"));
     }
 
+    @Test
+    public void string_can_have_different_delimiters_mixed() {
+        StringOfNumbersParser parser = new StringOfNumbersParser(",", "\n");
+
+        String[] output = parser.parse("1.1\n2.2,3,4\n5.5");
+
+        assertThat(output.length, equalTo(5));
+        assertThat(output[0], equalTo("1.1"));
+        assertThat(output[1], equalTo("2.2"));
+        assertThat(output[2], equalTo("3"));
+        assertThat(output[3], equalTo("4"));
+        assertThat(output[4], equalTo("5.5"));
+    }
+
+
 }
