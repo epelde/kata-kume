@@ -2,7 +2,6 @@ package io.github.epelde.katakume.stringcalculator;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class StringCalculator {
 
@@ -25,7 +24,7 @@ public class StringCalculator {
         try {
             return Arrays.stream(this.parser.parse(number))
                     .reduce("0", (number1, number2) ->
-                        sumTwoStringNumbers(number1, number2));
+                        sum(number1, number2));
         } catch (NumberFormatException e) {
             return getNumberExpectedMessage(number);
         }
@@ -35,7 +34,7 @@ public class StringCalculator {
         return number.replace(NEWLINE_SEPARATOR, SEPARATOR);
     }
 
-    private String sumTwoStringNumbers(String number1, String number2) {
+    private String sum(String number1, String number2) {
         return new BigDecimal(number1).add(new BigDecimal(number2)).toString();
     }
 
