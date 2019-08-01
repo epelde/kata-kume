@@ -105,4 +105,9 @@ public class InputNumberParsingTests {
         }
     }
 
+    @Test
+    public void EOF_exception_expected_when_input_ends_with_delimiter() {
+        fail("Test not yet implemented");
+    }
+
 }
