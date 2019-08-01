@@ -50,4 +50,9 @@ public class StringCalculatorTests {
         assertThat(stringCalculator.add("1\n2,3"), equalTo("6"));
     }
 
+    @Test
+    public void add_method_handles_integer_and_decimal_numbers() {
+        assertThat(stringCalculator.add("1.2,4\n2.3"), equalTo("7.5"));
+    }
+
 }
