@@ -12,7 +12,7 @@ public class InputNumberParsingTests {
 
     @BeforeEach
     public void setUp() {
-        parser = new StringOfNumbersParser();
+        parser = new StringOfNumbersParser(",");
     }
 
     @Test
