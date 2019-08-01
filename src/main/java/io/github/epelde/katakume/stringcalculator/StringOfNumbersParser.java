@@ -7,15 +7,19 @@ public class StringOfNumbersParser {
 
     private final String DEFAULT_DELIMITERS = ",|\n";
 
-    public String[] parse(String input) {
+    public String[] parse(String input) throws NumberExpectedException {
 
         if (input.isEmpty()) {
             return new String[]{"0"};
         }
 
-        return Arrays.stream(input.split(DEFAULT_DELIMITERS))
-                .map(number -> new BigDecimal(number).toString())
-                .toArray(String[]::new);
+        try {
+            return Arrays.stream(input.split(DEFAULT_DELIMITERS))
+                    .map(number -> new BigDecimal(number).toString())
+                    .toArray(String[]::new);
+        } catch(NumberFormatException e) {
+            throw new NumberExpectedException();
+        }
     }
 
 }

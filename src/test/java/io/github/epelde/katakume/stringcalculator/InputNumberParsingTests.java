@@ -18,7 +18,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void empty_string_returns_array_with_just_one_zero() {
+    public void empty_string_returns_array_with_just_one_zero() throws NumberExpectedException {
         String[] output = parser.parse("");
 
         assertThat(output.length, equalTo(1));
@@ -26,7 +26,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void string_containing_just_one_number_returns_array_with_the_number() {
+    public void string_containing_just_one_number_returns_array_with_the_number() throws NumberExpectedException {
         String[] output = parser.parse("1");
 
         assertThat(output.length, equalTo(1));
@@ -34,7 +34,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void string_containing_just_one_decimal_number_returns_array_with_the_number() {
+    public void string_containing_just_one_decimal_number_returns_array_with_the_number() throws NumberExpectedException {
         String[] output = parser.parse("1.2");
 
         assertThat(output.length, equalTo(1));
@@ -42,7 +42,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void string_containing_two_numbers_returns_array_with_two_numbers() {
+    public void string_containing_two_numbers_returns_array_with_two_numbers() throws NumberExpectedException {
         String[] output = parser.parse("1,2");
 
         assertThat(output.length, equalTo(2));
@@ -51,7 +51,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void string_containing_two_decimal_numbers_returns_array_with_two_numbers() {
+    public void string_containing_two_decimal_numbers_returns_array_with_two_numbers() throws NumberExpectedException {
         String[] output = parser.parse("1.1,2.2");
 
         assertThat(output.length, equalTo(2));
@@ -60,7 +60,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void string_can_contain_many_numbers() {
+    public void string_can_contain_many_numbers() throws NumberExpectedException {
         String[] output = parser.parse("1.1,2.2,3,4,5.5");
 
         assertThat(output.length, equalTo(5));
@@ -72,7 +72,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void new_line_can_also_be_a_valid_delimiter() {
+    public void new_line_can_also_be_a_valid_delimiter() throws NumberExpectedException {
         String[] output = parser.parse("1.1\n2.2\n3\n4\n5.5");
 
         assertThat(output.length, equalTo(5));
@@ -84,7 +84,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void string_can_have_different_delimiters_mixed() {
+    public void string_can_have_different_delimiters_mixed() throws NumberExpectedException {
         String[] output = parser.parse("1.1\n2.2,3,4\n5.5");
 
         assertThat(output.length, equalTo(5));
@@ -99,8 +99,8 @@ public class InputNumberParsingTests {
     public void number_is_expected_between_delimiters() {
         try {
             parser.parse("175.2,\n35");
-            fail("NumberFormatException was expected");
-        } catch(NumberFormatException expected) {
+            fail("NumberExpectedException was expected");
+        } catch(NumberExpectedException expected) {
             assertTrue(true);
         }
     }

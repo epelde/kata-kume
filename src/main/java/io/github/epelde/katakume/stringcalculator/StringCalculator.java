@@ -25,7 +25,7 @@ public class StringCalculator {
             return Arrays.stream(this.parser.parse(number))
                     .reduce("0", (number1, number2) ->
                         sum(number1, number2));
-        } catch (NumberFormatException e) {
+        } catch (NumberExpectedException e) {
             return getNumberExpectedMessage(number);
         }
     }
