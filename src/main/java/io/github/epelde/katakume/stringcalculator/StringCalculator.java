@@ -15,7 +15,7 @@ public class StringCalculator {
             return "0";
         }
 
-        if (!number.contains(SEPARATOR)) {
+        if (containsJustOneNumber(number)) {
             return number;
         }
 
@@ -24,6 +24,10 @@ public class StringCalculator {
                 .reduce("", (number1, number2) ->
                         stringToNumber(number1).add(stringToNumber(number2)).toString()
                 );
+    }
+
+    private boolean containsJustOneNumber(String number) {
+        return !number.contains(SEPARATOR);
     }
 
     private BigDecimal stringToNumber(String number) {
