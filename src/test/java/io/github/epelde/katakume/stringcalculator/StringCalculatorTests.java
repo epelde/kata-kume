@@ -62,4 +62,9 @@ public class StringCalculatorTests {
         assertThat(calculator.add("1.2\n\n5"), equalTo("Number expected but '\n' found at position 4."));
     }
 
+    @Test
+    public void the_number_can_not_end_in_a_separator() {
+        assertThat(calculator.add("1,3,"), equalTo("Number expected but EOF found."));
+    }
+
 }

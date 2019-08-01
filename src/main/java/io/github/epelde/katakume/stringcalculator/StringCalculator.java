@@ -16,6 +16,10 @@ public class StringCalculator {
             return "0";
         }
 
+        if (homogenizeSeparators(number).endsWith(SEPARATOR)) {
+            return "Number expected but EOF found.";
+        }
+
         try {
             return getStreamOfStringNumbers(number)
                     .reduce("0", (number1, number2) ->
