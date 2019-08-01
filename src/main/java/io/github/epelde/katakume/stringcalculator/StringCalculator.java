@@ -18,25 +18,17 @@ public class StringCalculator {
 
     public String add(String number) {
 
-        if (number.isEmpty()) {
-            return "0";
-        }
-
         if (homogenizeSeparators(number).endsWith(SEPARATOR)) {
             return "Number expected but EOF found.";
         }
 
         try {
-            return getStreamOfStringNumbers(number)
+            return Arrays.stream(this.parser.parse(number))
                     .reduce("0", (number1, number2) ->
-                            sumTwoStringNumbers(number1, number2));
+                        sumTwoStringNumbers(number1, number2));
         } catch (NumberFormatException e) {
             return getNumberExpectedMessage(number);
         }
-    }
-
-    private Stream<String> getStreamOfStringNumbers(String number) {
-        return Arrays.stream(homogenizeSeparators(number).split(SEPARATOR));
     }
 
     private String homogenizeSeparators(String number) {
