@@ -74,7 +74,7 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void new_line_can_also_be_a_valid_separator() {
+    public void new_line_can_also_be_a_valid_delimiter() {
         StringOfNumbersParser parser = new StringOfNumbersParser("\n");
         String[] output = parser.parse("1.1\n2.2\n3\n4\n5.5");
 
