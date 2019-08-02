@@ -106,8 +106,14 @@ public class InputNumberParsingTests {
     }
 
     @Test
-    public void EOF_exception_expected_when_input_ends_with_delimiter() {
-        fail("Test not yet implemented");
+    public void when_string_misses_number_in_last_position_EOF_exception_expected() throws NumberExpectedException {
+        try {
+            parser.parse("1,3,");
+            fail("EndOfFileException was expected");
+        } catch (EndOfFileException expected) {
+            assertTrue(true);
+        }
+
     }
 
 }
