@@ -3,6 +3,7 @@ package io.github.epelde.katakume.potter;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -59,14 +60,10 @@ public class BasketOfBooksTotalPriceTests {
         private List<Book> bookList;
 
         public Basket(Book[] books) {
-            this.bookList = new ArrayList();
-            for (Book book : books) {
-                this.bookList.add(book);
-            }
+            this.bookList = Arrays.asList(books);
         }
 
         public double price() {
-            Collections.sort(this.bookList);
             if (this.bookList.size() == 2 && this.bookList.get(0) != this.bookList.get(1)) {
                 return 8 * this.bookList.size() * TWO_DIFFERENT_DISCOUNT;
             }
