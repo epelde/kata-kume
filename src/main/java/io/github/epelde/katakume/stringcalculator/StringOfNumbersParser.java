@@ -13,7 +13,7 @@ public class StringOfNumbersParser {
             return new String[]{"0"};
         }
 
-        if (input.endsWith(",") || input.endsWith("\n")) {
+        if (missesNumberInLastPosition(input)) {
             throw new EndOfFileException();
         }
 
@@ -24,6 +24,10 @@ public class StringOfNumbersParser {
         } catch(NumberFormatException e) {
             throw new NumberExpectedException();
         }
+    }
+
+    private boolean missesNumberInLastPosition(String input) {
+        return input.endsWith(",") || input.endsWith("\n");
     }
 
 }
