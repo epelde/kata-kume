@@ -2,6 +2,10 @@ package io.github.epelde.katakume.potter;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static io.github.epelde.katakume.potter.BasketOfBooksTotalPriceTests.Book.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -52,21 +56,26 @@ public class BasketOfBooksTotalPriceTests {
         private static final double TWO_DIFFERENT_DISCOUNT = 0.95;
         private static final double THREE_DIFFERENT_DISCOUNT = 0.90;
 
-        private Book[] books;
+        private List<Book> bookList;
 
         public Basket(Book[] books) {
-            this.books = books;
+            this.bookList = new ArrayList();
+            for (Book book : books) {
+                this.bookList.add(book);
+            }
         }
 
         public double price() {
-            if (this.books.length == 2 && this.books[0] != this.books[1]) {
-                return 8 * this.books.length * TWO_DIFFERENT_DISCOUNT;
+            Collections.sort(this.bookList);
+            if (this.bookList.size() == 2 && this.bookList.get(0) != this.bookList.get(1)) {
+                return 8 * this.bookList.size() * TWO_DIFFERENT_DISCOUNT;
             }
-            if (this.books.length == 3 && this.books[0] != this.books[1] && this.books[0] != this.books[2]
-                && this.books[1] != this.books[2]) {
-                return 8 * this.books.length * THREE_DIFFERENT_DISCOUNT;
+            if (this.bookList.size() == 3 && this.bookList.get(0) != this.bookList.get(1) &&
+                    this.bookList.get(0) != this.bookList.get(2) &&
+                    this.bookList.get(1) != this.bookList.get(2)) {
+                return 8 * this.bookList.size() * THREE_DIFFERENT_DISCOUNT;
             }
-            return 8 * this.books.length;
+            return 8 * this.bookList.size();
         }
     }
 }
