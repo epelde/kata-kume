@@ -32,14 +32,14 @@ public class BasketOfBooksTotalPriceTests {
     }
 
     @Test
-    public void any_two_different_books_get_a_discount() {
+    public void any_two_different_book_set_get_a_discount() {
         Basket basket = new Basket(new Book[] { BOOK1, BOOK2 });
 
         assertTrue(15.2 == basket.price());
     }
 
     @Test
-    public void any_three_different_books_get_a_discount() {
+    public void any_three_different_book_set_get_a_discount() {
         Basket basket = new Basket(new Book[] { BOOK1, BOOK2, BOOK3 });
 
         assertTrue(21.6 == basket.price());
