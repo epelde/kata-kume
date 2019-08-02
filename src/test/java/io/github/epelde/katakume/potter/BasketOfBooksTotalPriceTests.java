@@ -42,6 +42,8 @@ public class BasketOfBooksTotalPriceTests {
 
     private class Basket {
 
+        private static final double TWO_DIFFERENT_DISCOUNT = 0.95;
+
         private Book[] books;
 
         public Basket(Book[] books) {
@@ -50,7 +52,7 @@ public class BasketOfBooksTotalPriceTests {
 
         public double price() {
             if (this.books.length == 2 && this.books[0] != this.books[1]) {
-                return 8 * this.books.length * 0.95;
+                return 8 * this.books.length * TWO_DIFFERENT_DISCOUNT;
             }
             return 8 * this.books.length;
         }
