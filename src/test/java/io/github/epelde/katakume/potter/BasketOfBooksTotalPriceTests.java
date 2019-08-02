@@ -23,10 +23,10 @@ public class BasketOfBooksTotalPriceTests {
     }
 
     @Test
-    public void two_copies_of_any_of_books_cost_8_euros_each() {
-        Basket basket = new Basket(new Book[] { BOOK1, BOOK2 });
+    public void copies_of_any_of_books_cost_8_euros_each() {
+        Basket basket = new Basket(new Book[] { BOOK1, BOOK1, BOOK1, BOOK1, BOOK1 });
 
-        assertEquals(16, basket.price());
+        assertEquals(40, basket.price());
     }
 
     public enum Book {
