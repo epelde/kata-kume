@@ -8,33 +8,28 @@ public class BasketOfBooksTotalPriceTests {
 
     @Test
     public void empty_basket_price_is_zero() {
-        Basket basket = new Basket();
+        Basket basket = new Basket(new String[] {});
 
         assertEquals(0, basket.price());
     }
 
     @Test
     public void one_copy_of_any_of_books_costs_8_euros() {
-        Basket basket = new Basket(1);
+        Basket basket = new Basket(new String[] { "BOOK1" });
 
         assertEquals(8, basket.price());
-
     }
 
     private class Basket {
 
-        private int bookUnits;
+        private String[] books;
 
-        public Basket() {
-            
-        }
-
-        public Basket(int bookUnits) {
-            this.bookUnits = bookUnits;
+        public Basket(String[] books) {
+            this.books = books;
         }
 
         public int price() {
-            return 8 * this.bookUnits;
+            return 8 * this.books.length;
         }
     }
 }
