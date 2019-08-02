@@ -2,9 +2,7 @@ package io.github.epelde.katakume.potter;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static io.github.epelde.katakume.potter.BasketOfBooksTotalPriceTests.Book.*;
