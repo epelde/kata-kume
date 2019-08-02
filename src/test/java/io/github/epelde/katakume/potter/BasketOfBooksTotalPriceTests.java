@@ -13,9 +13,28 @@ public class BasketOfBooksTotalPriceTests {
         assertEquals(0, basket.price());
     }
 
+    @Test
+    public void one_copy_of_any_of_books_costs_8_euros() {
+        Basket basket = new Basket(1);
+
+        assertEquals(8, basket.price());
+
+    }
+
     private class Basket {
+
+        private int bookUnits;
+
+        public Basket() {
+            
+        }
+
+        public Basket(int bookUnits) {
+            this.bookUnits = bookUnits;
+        }
+
         public int price() {
-            return 0;
+            return 8 * this.bookUnits;
         }
     }
 }
