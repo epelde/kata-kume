@@ -20,6 +20,13 @@ public class BasketOfBooksTotalPriceTests {
         assertEquals(8, basket.price());
     }
 
+    @Test
+    public void two_copies_of_any_of_books_costs_8_euros_each() {
+        Basket basket = new Basket(new String[] { "BOOK1", "BOOK2" });
+
+        assertEquals(16, basket.price());
+    }
+
     private class Basket {
 
         private String[] books;
