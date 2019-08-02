@@ -23,7 +23,7 @@ public class BasketOfBooksTotalPriceTests {
     }
 
     @Test
-    public void copies_of_any_of_books_cost_8_euros_each() {
+    public void copies_of_any_same_book_cost_8_euros_each() {
         Basket basket = new Basket(new Book[] { BOOK1, BOOK1, BOOK1, BOOK1, BOOK1 });
 
         assertEquals(40, basket.price());
