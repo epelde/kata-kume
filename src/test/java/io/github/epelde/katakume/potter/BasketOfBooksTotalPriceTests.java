@@ -14,6 +14,8 @@ public class BasketOfBooksTotalPriceTests {
         assertTrue(0 == basket.price());
     }
 
+    // TODO If no arrays is passed on constructor, price should be zero.
+
     @Test
     public void one_copy_of_any_of_books_costs_8_euros() {
         Basket basket = new Basket(new Book[] { BOOK1 });
@@ -29,14 +31,14 @@ public class BasketOfBooksTotalPriceTests {
     }
 
     @Test
-    public void any_two_different_book_set_get_a_discount() {
+    public void any_two_different_book_set_get_a_5_per_cent_discount() {
         Basket basket = new Basket(new Book[] { BOOK1, BOOK2 });
 
         assertTrue(15.2 == basket.price());
     }
 
     @Test
-    public void any_three_different_book_set_get_a_discount() {
+    public void any_three_different_book_set_get_a_10_per_cent_discount() {
         Basket basket = new Basket(new Book[] { BOOK1, BOOK2, BOOK3 });
 
         assertTrue(21.6 == basket.price());
