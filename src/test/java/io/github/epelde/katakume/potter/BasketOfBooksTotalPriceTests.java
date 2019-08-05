@@ -25,9 +25,10 @@ public class BasketOfBooksTotalPriceTests {
 
     @Test
     public void copies_of_any_same_book_have_no_discount() {
-        Basket basket = new Basket(new Book[] { BOOK1, BOOK1, BOOK1, BOOK1, BOOK1 });
-
-        assertTrue(40 == basket.price());
+        assertTrue(16 == new Basket(new Book[] { BOOK2, BOOK2 }).price());
+        assertTrue(24 == new Basket(new Book[] { BOOK3, BOOK3, BOOK3 }).price());
+        assertTrue(32 == new Basket(new Book[] { BOOK4, BOOK4, BOOK4, BOOK4 }).price());
+        assertTrue(40 == new Basket(new Book[] { BOOK5, BOOK5, BOOK5, BOOK5, BOOK5 }).price());
     }
 
     @Test
