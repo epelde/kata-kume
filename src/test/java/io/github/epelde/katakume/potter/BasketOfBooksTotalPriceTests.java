@@ -29,6 +29,7 @@ public class BasketOfBooksTotalPriceTests {
         assertTrue(24 == new Basket(new Book[] { BOOK3, BOOK3, BOOK3 }).price());
         assertTrue(32 == new Basket(new Book[] { BOOK4, BOOK4, BOOK4, BOOK4 }).price());
         assertTrue(40 == new Basket(new Book[] { BOOK5, BOOK5, BOOK5, BOOK5, BOOK5 }).price());
+        assertTrue(48 == new Basket(new Book[] { BOOK5, BOOK5, BOOK5, BOOK5, BOOK5, BOOK5 }).price());
     }
 
     @Test
