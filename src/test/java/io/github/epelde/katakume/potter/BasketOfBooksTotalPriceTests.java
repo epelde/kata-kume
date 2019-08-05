@@ -38,4 +38,14 @@ public class BasketOfBooksTotalPriceTests {
         assertTrue(21.6 == new Basket(new Book[] { BOOK1, BOOK2, BOOK3 }).price());
     }
 
+    @Test
+    public void any_four_different_book_set_get_a_20_per_cent_discount() {
+        assertTrue(25.6 == new Basket(new Book[] { BOOK1, BOOK2, BOOK3, BOOK4 }).price());
+    }
+
+    @Test
+    public void any_five_different_book_set_get_a_20_per_cent_discount() {
+        assertTrue(30 == new Basket(new Book[] { BOOK1, BOOK2, BOOK3, BOOK4, BOOK5 }).price());
+    }
+
 }
