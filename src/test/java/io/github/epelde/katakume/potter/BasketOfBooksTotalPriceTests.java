@@ -2,10 +2,7 @@ package io.github.epelde.katakume.potter;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static io.github.epelde.katakume.potter.BasketOfBooksTotalPriceTests.Book.*;
+import static io.github.epelde.katakume.potter.Book.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BasketOfBooksTotalPriceTests {
@@ -45,32 +42,4 @@ public class BasketOfBooksTotalPriceTests {
         assertTrue(21.6 == basket.price());
     }
 
-
-    public enum Book {
-        BOOK1, BOOK2, BOOK3, BOOK4, BOOK5
-    }
-
-    private class Basket {
-
-        private static final double TWO_DIFFERENT_DISCOUNT = 0.95;
-        private static final double THREE_DIFFERENT_DISCOUNT = 0.90;
-
-        private List<Book> bookList;
-
-        public Basket(Book[] books) {
-            this.bookList = Arrays.asList(books);
-        }
-
-        public double price() {
-            if (this.bookList.size() == 2 && this.bookList.get(0) != this.bookList.get(1)) {
-                return 8 * this.bookList.size() * TWO_DIFFERENT_DISCOUNT;
-            }
-            if (this.bookList.size() == 3 && this.bookList.get(0) != this.bookList.get(1) &&
-                    this.bookList.get(0) != this.bookList.get(2) &&
-                    this.bookList.get(1) != this.bookList.get(2)) {
-                return 8 * this.bookList.size() * THREE_DIFFERENT_DISCOUNT;
-            }
-            return 8 * this.bookList.size();
-        }
-    }
 }
