@@ -5,8 +5,9 @@ import java.util.List;
 
 public class Basket {
 
-    private static final double TWO_DIFFERENT_DISCOUNT = 0.95;
-    private static final double THREE_DIFFERENT_DISCOUNT = 0.90;
+    private static final double TWO_DIFFERENT_BOOK_SET_DISCOUNT = 0.95;
+
+    private static final double THREE_DIFFERENT_BOOK_SET_DISCOUNT = 0.90;
 
     private List<Book> bookList;
 
@@ -16,12 +17,12 @@ public class Basket {
 
     public double price() {
         if (this.bookList.size() == 2 && this.bookList.get(0) != this.bookList.get(1)) {
-            return 8 * this.bookList.size() * TWO_DIFFERENT_DISCOUNT;
+            return 8 * this.bookList.size() * TWO_DIFFERENT_BOOK_SET_DISCOUNT;
         }
         if (this.bookList.size() == 3 && this.bookList.get(0) != this.bookList.get(1) &&
                 this.bookList.get(0) != this.bookList.get(2) &&
                 this.bookList.get(1) != this.bookList.get(2)) {
-            return 8 * this.bookList.size() * THREE_DIFFERENT_DISCOUNT;
+            return 8 * this.bookList.size() * THREE_DIFFERENT_BOOK_SET_DISCOUNT;
         }
         return 8 * this.bookList.size();
     }
