@@ -2,7 +2,7 @@ package io.github.epelde.katakume.stringcalculator;
 
 public class StringNumberParser {
 
-    private final String pattern = ",";
+    private final String pattern = ",|\n";
 
     public String[] parse(String text) {
         if (text.isEmpty()) {

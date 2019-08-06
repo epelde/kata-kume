@@ -50,7 +50,18 @@ public class StringNumberParserTests {
         assertThat(result[2], equalTo("3"));
         assertThat(result[3], equalTo("4"));
         assertThat(result[4], equalTo("5"));
+    }
 
+    @Test
+    public void new_line_is_also_valid_separator() {
+        String[] result = parser.parse("1,2,3\n4\n5");
+
+        assertThat(result.length, equalTo(5));
+        assertThat(result[0], equalTo("1"));
+        assertThat(result[1], equalTo("2"));
+        assertThat(result[2], equalTo("3"));
+        assertThat(result[3], equalTo("4"));
+        assertThat(result[4], equalTo("5"));
     }
 
 }
