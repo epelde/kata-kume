@@ -2,10 +2,12 @@ package io.github.epelde.katakume.stringcalculator;
 
 public class StringNumberParser {
 
+    private final String pattern = ",";
+
     public String[] parse(String text) {
         if (text.isEmpty()) {
             return new String[] { "0" };
         }
-        return new String[] { text };
+        return text.split(pattern);
     }
 }
