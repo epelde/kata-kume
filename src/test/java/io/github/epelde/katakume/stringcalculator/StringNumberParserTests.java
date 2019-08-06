@@ -16,7 +16,7 @@ public class StringNumberParserTests {
     }
 
     @Test
-    public void dumb_test() {
+    public void empty_string_returns_array_with_zero_as_unique_element() {
         assertThat(parser.parse("").length, equalTo(1));
         assertThat(parser.parse("")[0], equalTo("0"));
     }
