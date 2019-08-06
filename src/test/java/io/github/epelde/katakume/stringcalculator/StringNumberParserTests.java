@@ -66,7 +66,6 @@ public class StringNumberParserTests {
         assertThat(result[4], equalTo("5"));
     }
 
-    // "175.2,\n35" is invalid and should return the message
     @Test
     public void number_is_expected_between_separators() {
         try {

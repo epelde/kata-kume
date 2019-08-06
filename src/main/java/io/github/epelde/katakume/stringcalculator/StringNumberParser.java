@@ -1,6 +1,7 @@
 package io.github.epelde.katakume.stringcalculator;
 
-import java.util.regex.PatternSyntaxException;
+import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class StringNumberParser {
 
@@ -13,8 +14,11 @@ public class StringNumberParser {
         }
 
         try {
-            return text.split(pattern);
-        } catch (PatternSyntaxException e) {
+            return Arrays.stream(text.split(pattern))
+                    .map(numberString -> new BigDecimal(numberString))
+                    .map(number -> number.toString())
+                    .toArray(String[]::new);
+        } catch (NumberFormatException e) {
             throw new NumberExpectedException();
         }
     }
