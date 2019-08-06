@@ -40,4 +40,17 @@ public class StringNumberParserTests {
         assertThat(result[1], equalTo("2"));
     }
 
+    @Test
+    public void string_containing_many_numbers_is_parsed_to_many_numbers() {
+        String[] result = parser.parse("1,2,3,4,5");
+
+        assertThat(result.length, equalTo(5));
+        assertThat(result[0], equalTo("1"));
+        assertThat(result[1], equalTo("2"));
+        assertThat(result[2], equalTo("3"));
+        assertThat(result[3], equalTo("4"));
+        assertThat(result[4], equalTo("5"));
+
+    }
+
 }
