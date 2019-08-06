@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class RegExpExploratoryTests {
+public class StringNumberParserTests {
 
-    private StringParser parser;
+    private StringNumberParser parser;
 
     @BeforeEach
     public void setUp() {
-        parser = new StringParser();
+        parser = new StringNumberParser();
     }
 
     @Test
