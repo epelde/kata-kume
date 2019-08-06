@@ -16,9 +16,15 @@ public class StringNumberParserTests {
     }
 
     @Test
-    public void empty_string_returns_array_with_zero_as_unique_element() {
+    public void empty_string_returns_zero_string() {
         assertThat(parser.parse("").length, equalTo(1));
         assertThat(parser.parse("")[0], equalTo("0"));
+    }
+
+    @Test
+    public void string_containing_one_number_returns_that_number() {
+        assertThat(parser.parse("5").length, equalTo(1));
+        assertThat(parser.parse("5")[0], equalTo("5"));
     }
 
 }
