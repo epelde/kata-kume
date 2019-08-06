@@ -31,4 +31,13 @@ public class StringNumberParserTests {
         assertThat(result[0], equalTo("5"));
     }
 
+    @Test
+    public void string_containing_two_numbers_returns_two_elements() {
+        String[] result = parser.parse("1,2");
+
+        assertThat(result.length, equalTo(2));
+        assertThat(result[0], equalTo("1"));
+        assertThat(result[1], equalTo("2"));
+    }
+
 }
