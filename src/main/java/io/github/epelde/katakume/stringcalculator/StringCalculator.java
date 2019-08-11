@@ -22,8 +22,9 @@ public class StringCalculator {
         int sepPosition = 0;
 
         for (int index = 0; index < inputStringLength; index++) {
+            char currentCharacter = input.charAt(index);
             try {
-                if (isSeparatorCharacter(input.charAt(index))) {
+                if (isSeparatorCharacter(currentCharacter)) {
                     numbers.add(convertToNumber(input.substring(sepPosition, index)));
                     sepPosition = index + 1;
                 }
@@ -32,7 +33,7 @@ public class StringCalculator {
                     numbers.add(convertToNumber(input.substring(sepPosition)));
                 }
             } catch(NumberFormatException e) {
-                return "Number expected but '" + input.charAt(index) + "' found at position " + index + ".";
+                return "Number expected but '" + currentCharacter + "' found at position " + index + ".";
             }
         }
 
