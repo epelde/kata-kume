@@ -11,9 +11,9 @@ public class StringCalculator {
         this.parser = parser;
     }
 
-    public String add(String number) {
+    public String add(String input) {
         try {
-            return Arrays.stream(this.parser.parse(number))
+            return Arrays.stream(this.parser.parse(input))
                     .reduce("0", (number1, number2) ->
                         sum(number1, number2));
         } catch (NumberExpectedException e) {
