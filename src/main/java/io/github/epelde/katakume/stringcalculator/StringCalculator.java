@@ -9,6 +9,8 @@ public class StringCalculator {
 
     private final static char COMMA_SEPARATOR = ',';
 
+    private final static char NEW_LINE_SEPARATOR = '\n';
+
     public String add(String input) {
 
         List<BigDecimal> numbers = new ArrayList<>();
@@ -35,7 +37,7 @@ public class StringCalculator {
     }
 
     private boolean isSeparatorCharacter(char character) {
-        return character == COMMA_SEPARATOR;
+        return character == COMMA_SEPARATOR || character == NEW_LINE_SEPARATOR;
     }
 
     private BigDecimal sumNumbers(Stream<BigDecimal> numbers) {

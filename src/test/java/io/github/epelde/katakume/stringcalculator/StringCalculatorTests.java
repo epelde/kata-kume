@@ -44,15 +44,11 @@ public class StringCalculatorTests {
     }
 
     @Test
-    @Disabled
-    public void add_method_also_handles_newline_separator() {
+    public void add_method_also_handles_newline_as_separator() {
         assertThat(calculator.add("1\n2,3"), equalTo("6"));
-    }
-
-    @Test
-    @Disabled
-    public void add_method_handles_integer_and_decimal_numbers() {
-        assertThat(calculator.add("1.2,4\n2.3"), equalTo("7.5"));
+        assertThat(calculator.add("1,2\n3,4\n5"), equalTo("15"));
+        assertThat(calculator.add("1.1,1.2,1.3\n1.4,1.5"), equalTo("6.5"));
+        assertThat(calculator.add("111,112,113,114\n215"), equalTo("665"));
     }
 
     @Test
