@@ -6,13 +6,15 @@ import java.util.List;
 
 public class StringCalculator {
 
+    private final static char COMMA_SEPARATOR = ',';
+
     public String add(String input) {
 
         if (input.isEmpty()) {
             return "0";
         }
 
-        if (!input.contains(",")) {
+        if (!input.contains(String.valueOf(COMMA_SEPARATOR))) {
             return input;
         }
 
@@ -39,6 +41,6 @@ public class StringCalculator {
     }
 
     private boolean isSeparatorCharacter(char character) {
-        return character == ',';
+        return character == COMMA_SEPARATOR;
     }
 }
