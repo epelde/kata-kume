@@ -11,26 +11,20 @@ public class StringCalculator {
 
     public String add(String input) {
 
-        if (input.isEmpty()) {
-            return "0";
-        }
-
-        if (!input.contains(String.valueOf(COMMA_SEPARATOR))) {
-            return input;
-        }
-
         List<BigDecimal> numbers = new ArrayList<>();
+        numbers.add(convertToNumber("0"));
+
         int sepPosition = 0;
 
         for (int index = 0; index < input.length(); index++) {
             char currentChar = input.charAt(index);
             if (isSeparatorCharacter(currentChar)) {
                 numbers.add(convertToNumber(input.substring(sepPosition, index)));
-                sepPosition = index;
+                sepPosition = index + 1;
             }
 
             if (index == input.length() - 1) {
-                numbers.add(convertToNumber(input.substring(sepPosition + 1)));
+                numbers.add(convertToNumber(input.substring(sepPosition)));
             }
         }
 
