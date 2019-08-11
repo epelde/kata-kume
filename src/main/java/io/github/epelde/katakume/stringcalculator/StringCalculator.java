@@ -17,8 +17,7 @@ public class StringCalculator {
         int sepPosition = 0;
 
         for (int index = 0; index < input.length(); index++) {
-            char currentChar = input.charAt(index);
-            if (isSeparatorCharacter(currentChar)) {
+            if (isSeparatorCharacter(input.charAt(index))) {
                 numbers.add(convertToNumber(input.substring(sepPosition, index)));
                 sepPosition = index + 1;
             }
