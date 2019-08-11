@@ -20,8 +20,8 @@ public class StringCalculator {
         int sepPosition = 0;
 
         for (int index = 0; index < input.length(); index++) {
-            char c = input.charAt(index);
-            if (c == ',') {
+            char currentChar = input.charAt(index);
+            if (currentChar == ',') {
                 numbers.add(convertToNumber(input.substring(sepPosition, index)));
                 sepPosition = index;
             }
