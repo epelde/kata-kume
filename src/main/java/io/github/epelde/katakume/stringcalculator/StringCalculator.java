@@ -1,30 +1,36 @@
 package io.github.epelde.katakume.stringcalculator;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringCalculator {
 
-    private StringOfNumbersParser parser;
-
-    StringCalculator(StringOfNumbersParser parser) {
-        this.parser = parser;
-    }
-
     public String add(String input) {
-        try {
-            return Arrays.stream(this.parser.parse(input))
-                    .reduce("0", (number1, number2) ->
-                        sum(number1, number2));
-        } catch (NumberExpectedException e) {
-            return "Number expected but '\n' found at position 6.";
-        } catch (EndOfFileException e) {
-            return "Number expected but EOF found.";
+
+        if (input.isEmpty()) {
+            return "0";
         }
-    }
 
-    private String sum(String number1, String number2) {
-        return new BigDecimal(number1).add(new BigDecimal(number2)).toString();
-    }
+        if (!input.contains(",")) {
+            return input;
+        }
 
+        List<BigDecimal> numbers = new ArrayList<>();
+        int sepPosition = 0;
+
+        for (int index = 0; index < input.length(); index++) {
+            char c = input.charAt(index);
+            if (c == ',') {
+                numbers.add(new BigDecimal(input.substring(sepPosition, index)));
+                sepPosition = index;
+            }
+
+            if (index == input.length() - 1) {
+                numbers.add(new BigDecimal(input.substring(sepPosition + 1)));
+            }
+        }
+
+        return numbers.stream().reduce(new BigDecimal("0"), (number1, number2) -> number1.add(number2)).toString();
+    }
 }

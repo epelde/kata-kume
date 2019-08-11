@@ -13,7 +13,7 @@ public class StringCalculatorTests {
 
     @BeforeEach
     public void setUp() {
-        calculator = new StringCalculator(new StringOfNumbersParser());
+        calculator = new StringCalculator();
     }
 
     @Test
@@ -32,6 +32,8 @@ public class StringCalculatorTests {
     public void two_numbers_input_sums_them() {
         assertThat(calculator.add("1,3"), equalTo("4"));
         assertThat(calculator.add("1.1,1.2"), equalTo("2.3"));
+        assertThat(calculator.add("11,12"), equalTo("23"));
+        assertThat(calculator.add("112,18"), equalTo("130"));
     }
 
     @Test
