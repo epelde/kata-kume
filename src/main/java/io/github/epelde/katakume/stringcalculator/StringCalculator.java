@@ -21,7 +21,7 @@ public class StringCalculator {
 
         for (int index = 0; index < input.length(); index++) {
             char currentChar = input.charAt(index);
-            if (currentChar == ',') {
+            if (isSeparatorCharacter(currentChar)) {
                 numbers.add(convertToNumber(input.substring(sepPosition, index)));
                 sepPosition = index;
             }
@@ -36,5 +36,9 @@ public class StringCalculator {
 
     private BigDecimal convertToNumber(String number) {
         return new BigDecimal(number);
+    }
+
+    private boolean isSeparatorCharacter(char character) {
+        return character == ',';
     }
 }
