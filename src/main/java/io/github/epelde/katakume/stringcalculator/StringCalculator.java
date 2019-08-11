@@ -27,7 +27,7 @@ public class StringCalculator {
                     numbers.add(convertToNumber(input.substring(sepPosition)));
                 }
             } catch(NumberFormatException e) {
-                return "Number expected but '\n' found at position 6.";
+                return "Number expected but '" + input.charAt(index) + "' found at position " + index + ".";
             }
         }
 
