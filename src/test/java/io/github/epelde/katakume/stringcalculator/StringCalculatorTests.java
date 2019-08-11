@@ -37,9 +37,10 @@ public class StringCalculatorTests {
     }
 
     @Test
-    @Disabled
-    public void string_containing_many_numbers_returns_the_sum() {
+    public void many_numbers_input_sums_all_of_them() {
+        assertThat(calculator.add("1,2,3,4,5"), equalTo("15"));
         assertThat(calculator.add("1.1,1.2,1.3,1.4,1.5"), equalTo("6.5"));
+        assertThat(calculator.add("111,112,113,114,215"), equalTo("665"));
     }
 
     @Test
