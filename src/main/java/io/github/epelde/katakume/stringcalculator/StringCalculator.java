@@ -19,18 +19,18 @@ public class StringCalculator {
         }
 
         List<BigDecimal> numbers = new ArrayList<>();
-        int sepPosition = 0;
+        int lastSeparatorPosition = 0;
 
         for (int index = 0; index < inputStringLength; index++) {
             char currentCharacter = input.charAt(index);
             try {
                 if (isSeparatorCharacter(currentCharacter)) {
-                    numbers.add(convertToNumber(input.substring(sepPosition, index)));
-                    sepPosition = index + 1;
+                    numbers.add(convertToNumber(input.substring(lastSeparatorPosition, index)));
+                    lastSeparatorPosition = index + 1;
                 }
 
                 if (index == inputStringLength - 1) {
-                    numbers.add(convertToNumber(input.substring(sepPosition)));
+                    numbers.add(convertToNumber(input.substring(lastSeparatorPosition)));
                 }
             } catch(NumberFormatException e) {
                 return "Number expected but '" + currentCharacter + "' found at position " + index + ".";
