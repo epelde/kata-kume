@@ -14,8 +14,6 @@ public class StringCalculator {
     public String add(String input) {
 
         List<BigDecimal> numbers = new ArrayList<>();
-        numbers.add(convertToNumber("0"));
-
         int sepPosition = 0;
 
         for (int index = 0; index < input.length(); index++) {
