@@ -12,22 +12,23 @@ public class StringCalculator {
     private final static char NEW_LINE_SEPARATOR = '\n';
 
     public String add(String input) {
+        int inputStringLength = input.length();
 
-        if (input.length() > 0 && isSeparatorCharacter(input.charAt(input.length() - 1))) {
+        if (inputStringLength > 0 && isSeparatorCharacter(input.charAt(inputStringLength - 1))) {
             return "Number expected but EOF found.";
         }
 
         List<BigDecimal> numbers = new ArrayList<>();
         int sepPosition = 0;
 
-        for (int index = 0; index < input.length(); index++) {
+        for (int index = 0; index < inputStringLength; index++) {
             try {
                 if (isSeparatorCharacter(input.charAt(index))) {
                     numbers.add(convertToNumber(input.substring(sepPosition, index)));
                     sepPosition = index + 1;
                 }
 
-                if (index == input.length() - 1) {
+                if (index == inputStringLength - 1) {
                     numbers.add(convertToNumber(input.substring(sepPosition)));
                 }
             } catch(NumberFormatException e) {
