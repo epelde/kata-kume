@@ -52,7 +52,6 @@ public class StringCalculatorTests {
     }
 
     @Test
-    @Disabled
     public void a_number_is_always_expected_between_two_separators() {
         assertThat(calculator.add("175.2,\n35"), equalTo("Number expected but '\n' found at position 6."));
     }

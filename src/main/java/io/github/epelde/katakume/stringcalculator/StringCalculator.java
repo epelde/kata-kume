@@ -17,13 +17,17 @@ public class StringCalculator {
         int sepPosition = 0;
 
         for (int index = 0; index < input.length(); index++) {
-            if (isSeparatorCharacter(input.charAt(index))) {
-                numbers.add(convertToNumber(input.substring(sepPosition, index)));
-                sepPosition = index + 1;
-            }
+            try {
+                if (isSeparatorCharacter(input.charAt(index))) {
+                    numbers.add(convertToNumber(input.substring(sepPosition, index)));
+                    sepPosition = index + 1;
+                }
 
-            if (index == input.length() - 1) {
-                numbers.add(convertToNumber(input.substring(sepPosition)));
+                if (index == input.length() - 1) {
+                    numbers.add(convertToNumber(input.substring(sepPosition)));
+                }
+            } catch(NumberFormatException e) {
+                return "Number expected but '\n' found at position 6.";
             }
         }
 
