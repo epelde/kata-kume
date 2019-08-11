@@ -23,9 +23,10 @@ public class StringCalculator {
 
         for (int index = 0; index < inputStringLength; index++) {
             char currentCharacter = input.charAt(index);
+
             try {
                 if (isSeparatorCharacter(currentCharacter)) {
-                    numbers.add(convertToNumber(input.substring(lastSeparatorPosition, index)));
+                    numbers.add(chunkStringNumber(input, lastSeparatorPosition, index));
                     lastSeparatorPosition = index + 1;
                 }
 
@@ -38,6 +39,10 @@ public class StringCalculator {
         }
 
         return sumNumbers(numbers.stream()).toString();
+    }
+
+    private BigDecimal chunkStringNumber(String input, int beginIndex, int endIndex) {
+        return convertToNumber(input.substring(beginIndex, endIndex));
     }
 
     private BigDecimal convertToNumber(String number) {
