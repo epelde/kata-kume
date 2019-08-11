@@ -3,6 +3,7 @@ package io.github.epelde.katakume.stringcalculator;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StringCalculator {
 
@@ -33,7 +34,7 @@ public class StringCalculator {
             }
         }
 
-        return numbers.stream().reduce(new BigDecimal("0"), (number1, number2) -> number1.add(number2)).toString();
+        return sumNumbers(numbers.stream()).toString();
     }
 
     private BigDecimal convertToNumber(String number) {
@@ -42,5 +43,9 @@ public class StringCalculator {
 
     private boolean isSeparatorCharacter(char character) {
         return character == COMMA_SEPARATOR;
+    }
+
+    private BigDecimal sumNumbers(Stream<BigDecimal> numbers) {
+        return numbers.reduce(new BigDecimal("0"), (number1, number2) -> number1.add(number2));
     }
 }
