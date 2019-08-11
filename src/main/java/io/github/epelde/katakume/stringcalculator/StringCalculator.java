@@ -13,6 +13,10 @@ public class StringCalculator {
 
     public String add(String input) {
 
+        if (input.length() > 0 && isSeparatorCharacter(input.charAt(input.length() - 1))) {
+            return "Number expected but EOF found.";
+        }
+
         List<BigDecimal> numbers = new ArrayList<>();
         int sepPosition = 0;
 

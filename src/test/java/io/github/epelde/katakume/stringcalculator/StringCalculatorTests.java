@@ -1,7 +1,6 @@
 package io.github.epelde.katakume.stringcalculator;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -59,9 +58,9 @@ public class StringCalculatorTests {
     }
 
     @Test
-    @Disabled
-    public void string_can_not_end_in_a_separator() {
-        assertThat(calculator.add("1,3,"), equalTo("Number expected but EOF found."));
+    public void input_can_not_end_in_a_separator() {
+        assertThat(calculator.add("1,2,"), equalTo("Number expected but EOF found."));
+        assertThat(calculator.add("1,2\n3,4\n"), equalTo("Number expected but EOF found."));
     }
 
 }
