@@ -26,14 +26,18 @@ public class StringCalculator {
 
             try {
                 if (isSeparatorCharacter(currentCharacter)) {
-                    numbers.add(chunkStringNumber(input, lastSeparatorPosition, index));
+                    numbers.add(
+                            convertToNumber(
+                                    chunkStringNumber(input, lastSeparatorPosition, index)
+                            )
+                    );
                     lastSeparatorPosition = index + 1;
                 }
 
                 if (index == inputStringLength - 1) {
                     numbers.add(convertToNumber(input.substring(lastSeparatorPosition)));
                 }
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 return "Number expected but '" + currentCharacter + "' found at position " + index + ".";
             }
         }
@@ -41,8 +45,8 @@ public class StringCalculator {
         return sumNumbers(numbers.stream()).toString();
     }
 
-    private BigDecimal chunkStringNumber(String input, int beginIndex, int endIndex) {
-        return convertToNumber(input.substring(beginIndex, endIndex));
+    private String chunkStringNumber(String input, int beginIndex, int endIndex) {
+        return input.substring(beginIndex, endIndex);
     }
 
     private BigDecimal convertToNumber(String number) {
