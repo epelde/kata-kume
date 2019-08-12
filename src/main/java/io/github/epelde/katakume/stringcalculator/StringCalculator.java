@@ -12,16 +12,20 @@ public class StringCalculator {
     private final static char NEW_LINE_SEPARATOR = '\n';
 
     public String add(String input) {
-        int inputStringLength = input.length();
 
-        if (inputStringLength > 0 && isSeparatorCharacter(input.charAt(inputStringLength - 1))) {
+        if (input.isEmpty()) {
+            return "0";
+        }
+
+        if (hasSeparatorInLastPosition(input)) {
             return "Number expected but EOF found.";
         }
 
-        List<BigDecimal> numbers = new ArrayList<>();
+        int inputLength = input.length();
         int lastSeparatorPosition = 0;
+        List<BigDecimal> numbers = new ArrayList<>();
 
-        for (int index = 0; index < inputStringLength; index++) {
+        for (int index = 0; index < inputLength; index++) {
             char currentCharacter = input.charAt(index);
 
             try {
@@ -34,8 +38,12 @@ public class StringCalculator {
                     lastSeparatorPosition = index + 1;
                 }
 
-                if (index == inputStringLength - 1) {
-                    numbers.add(convertToNumber(input.substring(lastSeparatorPosition)));
+                if (index == inputLength - 1) {
+                    numbers.add(
+                            convertToNumber(
+                                    chunkStringNumber(input, lastSeparatorPosition, inputLength)
+                            )
+                    );
                 }
             } catch (NumberFormatException e) {
                 return "Number expected but '" + currentCharacter + "' found at position " + index + ".";
@@ -59,5 +67,9 @@ public class StringCalculator {
 
     private BigDecimal sumNumbers(Stream<BigDecimal> numbers) {
         return numbers.reduce(new BigDecimal("0"), (number1, number2) -> number1.add(number2));
+    }
+
+    private boolean hasSeparatorInLastPosition(String input) {
+        return isSeparatorCharacter(input.charAt(input.length() - 1));
     }
 }
