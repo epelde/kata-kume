@@ -3,7 +3,9 @@ package io.github.epelde.katakume.anagrams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AnagramBuilderShould {
 
@@ -22,8 +24,10 @@ public class AnagramBuilderShould {
 
     @Test
     void returns_anagram_combination_for_2_chars() {
-        assertArrayEquals(new String[] { "ab", "ba" }, builder.build("ab"));
-        assertArrayEquals(new String[] { "ac", "ca" }, builder.build("ac"));
+        String[] anagram = builder.build("ab");
+        assertEquals(2, anagram.length);
+        assertTrue(Arrays.asList(anagram).contains("ab"));
+        assertTrue(Arrays.asList(anagram).contains("ba"));
     }
 
 }
