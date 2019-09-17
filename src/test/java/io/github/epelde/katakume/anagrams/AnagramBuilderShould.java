@@ -9,5 +9,6 @@ public class AnagramBuilderShould {
     void returns_anagram_combination_for_1_char() {
         AnagramBuilder anagramB = new AnagramBuilder();
         Assertions.assertArrayEquals(new String[] {"b"}, anagramB.convert("b"));
+        Assertions.assertArrayEquals(new String[] {"a"}, anagramB.convert("a"));
     }
 }

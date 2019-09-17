@@ -5,7 +5,7 @@ public class AnagramBuilder {
 
     public String[] convert(String anagram) {
 
-        return new String[] {"b"};
+        return new String[] {anagram};
 
     }
 }
