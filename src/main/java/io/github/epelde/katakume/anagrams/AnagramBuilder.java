@@ -2,11 +2,11 @@ package io.github.epelde.katakume.anagrams;
 
 public class AnagramBuilder {
 
-    public String[] build(String anagram) {
-        if (anagram.length() == 1) {
-            return new String[] { anagram };
+    public String[] build(String input) {
+        if (input.length() == 1) {
+            return new String[] { input };
         } else {
-            return new String[] { anagram, anagram.substring(1, 2) + anagram.substring(0, 1)};
+            return new String[] { input, input.substring(1, 2) + input.substring(0, 1)};
         }
     }
 }
