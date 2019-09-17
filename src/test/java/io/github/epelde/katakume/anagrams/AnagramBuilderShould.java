@@ -17,5 +17,7 @@ public class AnagramBuilderShould {
     void returns_anagram_combination_for_2_chars() {
         AnagramBuilder anagramB = new AnagramBuilder();
         assertArrayEquals(new String[] { "ab", "ba" }, anagramB.convert("ab"));
+        assertArrayEquals(new String[] { "ac", "ca" }, anagramB.convert("ac"));
     }
+
 }

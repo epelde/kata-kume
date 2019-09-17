@@ -6,7 +6,7 @@ public class AnagramBuilder {
         if (anagram.length() == 1) {
             return new String[] { anagram };
         } else {
-            return new String[] { "ab", "ba"};
+            return new String[] { anagram, anagram.substring(1, 2) + anagram.substring(0, 1)};
         }
     }
 }
