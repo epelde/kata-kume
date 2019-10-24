@@ -15,9 +15,20 @@ public class AnagramGenerator {
             return Arrays.asList(new String[] { input });
         }
 
+        if (input.length() == 2) {
+            return Arrays.asList(new String[] {
+                    String.valueOf(input.charAt(0)).concat(String.valueOf(input.charAt(1))),
+                    String.valueOf(input.charAt(1)).concat(String.valueOf(input.charAt(0)))
+            });
+        }
+
         return Arrays.asList(new String[] {
-            String.valueOf(input.charAt(0)).concat(String.valueOf(input.charAt(1))),
-            String.valueOf(input.charAt(1)).concat(String.valueOf(input.charAt(0)))
+                String.valueOf(input.charAt(0)).concat(String.valueOf(input.charAt(1))).concat(String.valueOf(input.charAt(2))),
+                String.valueOf(input.charAt(0)).concat(String.valueOf(input.charAt(2))).concat(String.valueOf(input.charAt(1))),
+                String.valueOf(input.charAt(1)).concat(String.valueOf(input.charAt(0))).concat(String.valueOf(input.charAt(2))),
+                String.valueOf(input.charAt(1)).concat(String.valueOf(input.charAt(2))).concat(String.valueOf(input.charAt(0))),
+                String.valueOf(input.charAt(2)).concat(String.valueOf(input.charAt(0))).concat(String.valueOf(input.charAt(1))),
+                String.valueOf(input.charAt(2)).concat(String.valueOf(input.charAt(1))).concat(String.valueOf(input.charAt(0)))
         });
 
     }

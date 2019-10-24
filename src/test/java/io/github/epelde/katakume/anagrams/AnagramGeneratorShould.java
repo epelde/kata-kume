@@ -37,4 +37,17 @@ public class AnagramGeneratorShould {
         assertTrue(result.contains("ab"));
         assertTrue(result.contains("ba"));
     }
+
+    @Test
+    public void generate_anagram_for_three_char_input() {
+        Collection<String> result = anagramGenerator.execute("abc");
+        assertEquals(6, result.size());
+        assertTrue(result.contains("abc"));
+        assertTrue(result.contains("acb"));
+        assertTrue(result.contains("bac"));
+        assertTrue(result.contains("bca"));
+        assertTrue(result.contains("cab"));
+        assertTrue(result.contains("cba"));
+
+    }
 }
