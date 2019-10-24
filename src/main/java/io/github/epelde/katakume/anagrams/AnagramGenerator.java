@@ -10,6 +10,15 @@ public class AnagramGenerator {
         if (input.isEmpty()) {
             return Collections.emptyList();
         }
-        return Arrays.asList(new String[] { input });
+
+        if (input.length() == 1) {
+            return Arrays.asList(new String[] { input });
+        }
+
+        return Arrays.asList(new String[] {
+            String.valueOf(input.charAt(0)).concat(String.valueOf(input.charAt(1))),
+            String.valueOf(input.charAt(1)).concat(String.valueOf(input.charAt(0)))
+        });
+
     }
 }

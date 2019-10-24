@@ -23,4 +23,13 @@ public class AnagramGeneratorShould {
         assertEquals(1, result.size());
         assertTrue(result.contains("a"));
     }
+
+    @Test
+    public void generate_simplest_anagram() {
+        AnagramGenerator anagramGenerator = new AnagramGenerator();
+        Collection<String> result = anagramGenerator.execute("ab");
+        assertEquals(2, result.size());
+        assertTrue(result.contains("ab"));
+        assertTrue(result.contains("ba"));
+    }
 }
